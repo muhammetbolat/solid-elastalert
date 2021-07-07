@@ -1,0 +1,19 @@
+name: Timeout RESOLVE
+type: flatline
+index: logstash*
+threshold: 10
+timeframe:
+    minutes: 3
+filter:
+- match:
+    message: "timeout"
+
+use_count_query: true
+
+doc_type: _doc
+
+alert:
+- "email"
+
+realert:
+  minutes: 30

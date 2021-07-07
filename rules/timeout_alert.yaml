@@ -1,0 +1,12 @@
+name: Timeout ALERT
+type: frequency
+index: logstash*
+num_events: 10
+timeframe:
+    minutes: 3
+filter:
+- match:
+    message: "timeout"
+
+alert:
+- "email"
